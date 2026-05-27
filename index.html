@@ -4,157 +4,399 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jaesung Choi — KIAS AI Junior Fellow</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a2e;
-    --ink-light: #3d3d5c;
-    --ink-muted: #6b6b8d;
-    --paper: #faf9f7;
-    --paper-warm: #f3f1ed;
-    --accent: #8b4513;
-    --accent-light: #c4956a;
-    --rule: #d4d0c8;
+    --ink: #0f1729;
+    --ink-light: #1e2a4a;
+    --ink-soft: #475569;
+    --ink-muted: #94a3b8;
+    --paper: #ffffff;
+    --paper-warm: #f8fafc;
+    --paper-deep: #f1f5f9;
+    --accent: #1e3a8a;
+    --accent-bright: #2547a8;
+    --accent-soft: #93a8d4;
+    --rule: #e2e8f0;
+    --rule-soft: #f1f5f9;
     --serif: 'Cormorant Garamond', 'Georgia', serif;
-    --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+    --sans: 'Inter', 'Helvetica Neue', sans-serif;
     --mono: 'JetBrains Mono', monospace;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; font-size: 17px; }
-
   body {
     font-family: var(--sans);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
+  /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
-    background: rgba(250, 249, 247, 0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
     border-bottom: 1px solid var(--rule);
+    transition: padding 0.3s;
   }
   nav .nav-inner {
-    max-width: 860px; margin: 0 auto; padding: 0.85rem 2rem;
+    max-width: 920px; margin: 0 auto; padding: 1rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
   }
-  nav .logo { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; color: var(--ink); letter-spacing: -0.01em; }
-  nav .logo span { color: var(--accent); }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav a { text-decoration: none; color: var(--ink-muted); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
+  nav .logo {
+    font-family: var(--serif);
+    font-weight: 600; font-size: 1.2rem;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+  nav .logo span { color: var(--accent); font-style: normal; }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; }
+  nav a {
+    text-decoration: none; color: var(--ink-soft);
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.3s; position: relative;
+  }
+  nav a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--accent);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
   nav a:hover { color: var(--accent); }
+  nav a:hover::after { transform: scaleX(1); }
 
+  /* ─── HERO ─── */
   .hero {
-    max-width: 860px; margin: 0 auto; padding: 8rem 2rem 3.5rem;
-    display: grid; grid-template-columns: 200px 1fr; gap: 3.5rem; align-items: start;
-    animation: fadeUp 0.8s ease both;
+    max-width: 920px; margin: 0 auto; padding: 8.5rem 2rem 4rem;
+    display: grid; grid-template-columns: 240px 1fr; gap: 4rem;
+    align-items: center;
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    position: relative; z-index: 1;
   }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-  .avatar-wrap { position: relative; width: 200px; height: 240px; animation: fadeUp 0.8s ease 0.15s both; }
-  .avatar-wrap::before { content: ''; position: absolute; inset: -6px; border: 1.5px solid var(--rule); border-radius: 4px; }
+  .avatar-wrap {
+    position: relative;
+    width: 240px; height: 300px;
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
+  }
   .avatar {
-    width: 100%; height: 100%; object-fit: cover; border-radius: 3px;
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover; border-radius: 3px;
+    background: linear-gradient(145deg, #e8e4dd, #c9c5bc);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 4rem; color: var(--ink-muted);
-    background: linear-gradient(145deg, #e8e4dd, #d8d4cc);
+    font-family: var(--serif); font-size: 5rem;
+    color: var(--ink-muted);
+    box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .hero-text { animation: fadeUp 0.8s ease 0.25s both; }
-  .hero-text h1 { font-family: var(--serif); font-size: 2.6rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
-  .hero-text .title-line { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.5rem; }
-  .hero-text .bio { color: var(--ink-light); font-size: 0.95rem; line-height: 1.8; max-width: 520px; }
-  .research-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-  .research-tags span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-muted); transition: all 0.3s; }
-  .research-tags span:hover { border-color: var(--accent); color: var(--accent); }
+  .avatar-wrap:hover .avatar {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.22);
+  }
 
-  section { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem; }
-  .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-  .section-head h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; white-space: nowrap; }
-  .section-head::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
-  .section-num { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-muted); letter-spacing: 0.05em; }
+  .hero-text { animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both; }
+  .hero-text .pre-name {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--accent); letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 0.9rem;
+    font-weight: 500;
+  }
+  .hero-text h1 {
+    font-family: var(--serif); font-size: 2.8rem;
+    font-weight: 600; line-height: 1.1;
+    letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .hero-text .title-line {
+    font-family: var(--sans); font-size: 0.92rem;
+    font-weight: 400; color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+  .hero-text .title-line strong {
+    color: var(--ink); font-weight: 600;
+  }
+  .hero-text .bio {
+    color: var(--ink-light); font-size: 0.96rem;
+    line-height: 1.75; max-width: 540px;
+  }
+  .research-tags {
+    display: flex; flex-wrap: wrap; gap: 0.45rem;
+    margin-top: 1.6rem;
+  }
+  .research-tags span {
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    color: var(--ink-soft);
+    transition: all 0.3s;
+    background: var(--paper-warm);
+  }
+  .research-tags span:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(30, 58, 138, 0.05);
+  }
 
-  .edu-item { display: flex; gap: 1.5rem; padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+  /* ─── SECTIONS ─── */
+  section {
+    max-width: 920px; margin: 0 auto;
+    padding: 2.8rem 2rem;
+    position: relative; z-index: 1;
+  }
+  .section-head {
+    display: flex; align-items: baseline;
+    gap: 1.2rem; margin-bottom: 1.8rem;
+  }
+  .section-head h2 {
+    font-family: var(--serif); font-size: 1.7rem;
+    font-weight: 600; white-space: nowrap;
+    letter-spacing: -0.015em;
+  }
+  .section-head::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule) 0%, transparent 100%);
+    transform: translateY(-4px);
+  }
+  .section-num {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--accent); letter-spacing: 0.1em;
+  }
+
+  /* ─── EDU/EMPLOYMENT ─── */
+  .edu-item {
+    display: flex; gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    transition: all 0.3s;
+  }
+  .edu-item:hover { border-bottom-color: var(--accent-soft); }
   .edu-item:last-child { border-bottom: none; }
-  .edu-year { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; min-width: 110px; padding-top: 0.15rem; }
-  .edu-info h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem; }
-  .edu-info p { font-size: 0.85rem; color: var(--ink-muted); }
+  .edu-year {
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--accent); letter-spacing: 0.04em;
+    min-width: 130px; padding-top: 0.2rem;
+    font-weight: 500;
+  }
+  .edu-info h3 {
+    font-family: var(--serif); font-size: 1.18rem;
+    font-weight: 600; margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+  }
+  .edu-info p {
+    font-size: 0.86rem; color: var(--ink-soft);
+    line-height: 1.55;
+  }
 
-  .pub-year { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; margin-top: 1.5rem; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule); }
+  /* ─── PUBLICATIONS ─── */
+  .pub-year {
+    font-family: var(--mono); font-size: 0.72rem;
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 500;
+    margin-top: 1.8rem; margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .pub-year::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+  }
   .pub-year:first-of-type { margin-top: 0; }
-  .pub-item { padding: 0.8rem 0; border-bottom: 1px solid transparent; transition: all 0.3s; cursor: default; }
-  .pub-item:hover { padding-left: 0.75rem; border-bottom-color: var(--rule); }
-  .pub-title { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--ink); line-height: 1.45; margin-bottom: 0.25rem; }
-  .pub-authors { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 0.2rem; }
-  .pub-authors strong { color: var(--ink); font-weight: 600; }
-  .pub-venue { font-size: 0.8rem; font-style: italic; color: var(--ink-muted); }
-  .pub-links { display: inline; margin-left: 0.5rem; }
-  .pub-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-style: normal; }
-  .pub-links a:hover { border-bottom-color: var(--accent); }
-  .pub-links a + a::before { content: '·'; margin: 0 0.4rem; color: var(--ink-muted); }
 
-  .pub-status {
-    display: inline-block; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.04em;
-    padding: 0.15rem 0.5rem; border-radius: 2px; margin-left: 0.5rem; vertical-align: middle;
+  .pub-item {
+    padding: 0.85rem 0 0.85rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: default;
   }
-  .pub-status.submitted { background: #f0ebe3; color: var(--accent); }
-  .pub-status.inprep { background: #e8e8f0; color: var(--ink-muted); }
+  .pub-item:hover {
+    border-left-color: var(--accent);
+    padding-left: 1rem;
+  }
+  .pub-title {
+    font-family: var(--serif); font-size: 1.13rem;
+    font-weight: 600; color: var(--ink);
+    line-height: 1.35; margin-bottom: 0.3rem;
+    letter-spacing: -0.005em;
+  }
+  .pub-authors {
+    font-size: 0.83rem; color: var(--ink-soft);
+    margin-bottom: 0.2rem;
+  }
+  .pub-authors strong {
+    color: var(--accent); font-weight: 600;
+  }
+  .pub-venue {
+    font-size: 0.82rem; font-style: italic;
+    color: var(--ink-soft);
+  }
+  .pub-links { display: inline; margin-left: 0.6rem; }
+  .pub-links a {
+    font-family: var(--mono); font-size: 0.68rem;
+    color: var(--accent); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s; font-style: normal;
+    padding-bottom: 1px;
+  }
+  .pub-links a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent-bright);
+  }
+  .pub-links a + a::before {
+    content: '·'; margin: 0 0.45rem;
+    color: var(--ink-muted);
+  }
 
+  /* ─── CV ─── */
   .cv-block {
-    background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 4px;
-    padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.3rem 2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
   }
-  .cv-block .cv-info h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; }
-  .cv-block .cv-info p { font-size: 0.85rem; color: var(--ink-muted); }
+  .cv-block::before {
+    content: ''; position: absolute;
+    top: -50%; right: -10%; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.06) 0%, transparent 70%);
+    transition: all 0.5s;
+  }
+  .cv-block:hover { border-color: var(--accent-soft); }
+  .cv-block:hover::before { transform: scale(1.5); }
+
   .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-    padding: 0.55rem 1.4rem; background: var(--ink); color: var(--paper);
-    border: none; border-radius: 3px; cursor: pointer; text-decoration: none; transition: all 0.3s; white-space: nowrap;
+    position: relative; z-index: 1;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--sans); font-size: 0.8rem;
+    font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.6rem;
+    background: var(--ink); color: var(--paper);
+    border: none; border-radius: 4px; cursor: pointer;
+    text-decoration: none; transition: all 0.3s;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(20, 20, 31, 0.15);
   }
-  .btn:hover { background: var(--accent); transform: translateY(-1px); }
-  .btn svg { width: 14px; height: 14px; }
+  .btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.25);
+  }
+  .btn svg { width: 13px; height: 13px; }
 
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .contact-card { padding: 1.2rem; border: 1px solid var(--rule); border-radius: 4px; transition: all 0.3s; }
-  .contact-card:hover { border-color: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
-  .contact-label { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .contact-value { font-size: 0.92rem; color: var(--ink); font-weight: 500; }
-  .contact-value a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.3s; }
-  .contact-value a:hover { border-color: var(--accent); color: var(--accent); }
+  /* ─── CONTACT ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+  .contact-card {
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    background: var(--paper);
+  }
+  .contact-card:hover {
+    border-color: var(--accent-soft);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -10px rgba(30, 58, 138, 0.12);
+    background: var(--paper-warm);
+  }
+  .contact-label {
+    font-family: var(--mono); font-size: 0.65rem;
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .contact-value {
+    font-size: 0.93rem; color: var(--ink);
+    font-weight: 500;
+  }
+  .contact-value a {
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: all 0.3s;
+  }
+  .contact-value a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
+  /* ─── FOOTER ─── */
   footer {
-    max-width: 860px; margin: 0 auto; padding: 2rem 2rem; border-top: 1px solid var(--rule);
-    display: flex; justify-content: space-between; align-items: center;
+    max-width: 920px; margin: 0 auto;
+    padding: 2.5rem 2rem 2rem;
+    border-top: 1px solid var(--rule-soft);
+    display: flex; justify-content: space-between;
+    align-items: center;
+    position: relative; z-index: 1;
   }
-  footer p { font-size: 0.78rem; color: var(--ink-muted); }
-  footer .social { display: flex; gap: 1.2rem; }
-  footer .social a { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.3s; }
+  footer p {
+    font-size: 0.76rem; color: var(--ink-muted);
+    font-family: var(--mono); letter-spacing: 0.02em;
+  }
+  footer .social { display: flex; gap: 1.4rem; }
+  footer .social a {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--ink-soft); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.3s;
+    text-transform: uppercase;
+  }
   footer .social a:hover { color: var(--accent); }
 
-  .stagger { animation: fadeUp 0.7s ease both; }
+  /* ─── STAGGER ─── */
+  .stagger { animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
   .stagger:nth-child(1) { animation-delay: 0.1s; }
   .stagger:nth-child(2) { animation-delay: 0.18s; }
   .stagger:nth-child(3) { animation-delay: 0.26s; }
   .stagger:nth-child(4) { animation-delay: 0.34s; }
 
-  @media (max-width: 680px) {
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 720px) {
     html { font-size: 15px; }
-    .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 7rem; }
-    .avatar-wrap { width: 140px; height: 170px; }
-    .hero-text h1 { font-size: 2rem; }
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2rem; padding-top: 7rem;
+      text-align: center;
+    }
+    .avatar-wrap {
+      width: 180px; height: 220px;
+      margin: 0 auto;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text .pre-name { justify-content: center; }
+    .research-tags { justify-content: center; }
     nav ul { gap: 1rem; }
-    nav a { font-size: 0.72rem; }
+    nav a { font-size: 0.7rem; letter-spacing: 0.05em; }
     .contact-grid { grid-template-columns: 1fr; }
-    .cv-block { flex-direction: column; text-align: center; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .edu-item { flex-direction: column; gap: 0.3rem; }
+    .edu-item { flex-direction: column; gap: 0.4rem; }
   }
 
-  .reveal-ready .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* ─── REVEAL ─── */
+  .reveal-ready .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal-ready .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -171,17 +413,16 @@
   </div>
 </nav>
 
-<!-- HERO / ABOUT -->
+<!-- HERO -->
 <section class="hero" id="about">
   <div class="avatar-wrap">
-    <!-- Replace with: <img class="avatar" src="photo.jpg" alt="Jaesung Choi"> -->
-    <div class="avatar">J</div>
+    <img class="avatar" src="img.jpg" alt="Jaesung Choi">
   </div>
   <div class="hero-text">
+    <div class="pre-name">AI Junior Fellow · KIAS</div>
     <h1>Jaesung Choi</h1>
-    <div class="title-line">AI Junior Fellow · KIAS</div>
+    <div class="title-line"><strong>Center for AI and Natural Sciences</strong>, Korea Institute for Advanced Study</div>
     <p class="bio">
-      AI Junior Fellow at the Center for AI and Natural Sciences, Korea Institute for Advanced Study (KIAS).
       My research focuses on developing machine learning methodologies — including reservoir computing and neuromorphic computing — and applying them to real-world problems in biological and meteorological data analysis.
     </p>
     <div class="research-tags">
@@ -190,7 +431,6 @@
       <span>Nonlinear Dynamics</span>
       <span>Signal Processing</span>
       <span>Neuromorphic Computing</span>
-      <span>Machine Learning</span>
     </div>
   </div>
 </section>
@@ -201,7 +441,6 @@
     <span class="section-num">02</span>
     <h2>Employment</h2>
   </div>
-
   <div class="edu-item reveal">
     <div class="edu-year">2025 – present</div>
     <div class="edu-info">
@@ -231,7 +470,6 @@
     <span class="section-num">03</span>
     <h2>Education</h2>
   </div>
-
   <div class="edu-item reveal">
     <div class="edu-year">2019 – 2023</div>
     <div class="edu-info">
@@ -259,7 +497,7 @@
 <section id="publications">
   <div class="section-head reveal">
     <span class="section-num">04</span>
-    <h2>Publications <span style="font-size:0.55rem; font-family:var(--mono); color:var(--ink-muted); font-weight:400; letter-spacing:0.02em; vertical-align:middle;">(<sup>†</sup>equal contribution · *corresponding author)</span></h2>
+    <h2>Publications <span style="font-size:0.55rem; font-family:var(--mono); color:var(--ink-muted); font-weight:400; letter-spacing:0.05em; vertical-align:middle; font-style:normal;">(<sup>†</sup>equal contribution · *corresponding author)</span></h2>
   </div>
 
   <!-- IN PREPARATION -->
@@ -298,13 +536,13 @@
   <div class="pub-item reveal">
     <div class="pub-title">Stochastic Intracellular Calcium Dynamics Show Preserved Structures Identified by Deep Learning Classification</div>
     <div class="pub-authors"><strong>J. Choi</strong><sup>†</sup>*, A.L. Chanu<sup>†</sup>, S. Awasthi<sup>†</sup>*</div>
-    <div class="pub-venue">PLOS Computational Biology, accepted (in press)</div>
+    <div class="pub-venue">PLOS Computational Biology, 22(4), e1014240 <span class="pub-links"><a href="https://doi.org/10.1371/journal.pcbi.1014240" target="_blank">journal</a></span></div>
   </div>
 
   <div class="pub-item reveal">
     <div class="pub-title">Human Brain State Classification via Permutation Entropy of EEG Phase Dynamics across Consciousness Levels and Inattentive-Type ADHD</div>
     <div class="pub-authors">A.L. Chanu, Y. Park, <strong>J. Choi</strong>, Y. Cha, U.C. Lee, J.Y. Moon, J.M. Park</div>
-    <div class="pub-venue">Chaos, Solitons &amp; Fractals, accepted (in press)</div>
+    <div class="pub-venue">Chaos, Solitons &amp; Fractals (in press) <span class="pub-links"><a href="https://arxiv.org/abs/2503.19924" target="_blank">arxiv</a></span></div>
   </div>
 
   <!-- 2025 -->
@@ -369,7 +607,6 @@
     <div class="pub-authors"><strong>J. Choi</strong>, P. Kim</div>
     <div class="pub-venue">Chaos: An Interdisciplinary Journal of Nonlinear Science, 29(4), 043110 <span class="pub-links"><a href="https://doi.org/10.1063/1.5086902" target="_blank">journal</a></span></div>
   </div>
-
 </section>
 
 <!-- CV -->
@@ -378,8 +615,7 @@
     <span class="section-num">05</span>
     <h2>Curriculum Vitae</h2>
   </div>
-
-  <div class="cv-block reveal" style="justify-content:center;">
+  <div class="cv-block reveal">
     <a href="CV.pdf" target="_blank" class="btn">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"/></svg>
       Download PDF
@@ -393,15 +629,14 @@
     <span class="section-num">06</span>
     <h2>Contact</h2>
   </div>
-
   <div class="contact-grid">
     <div class="contact-card reveal stagger">
       <div class="contact-label">Email</div>
-      <div class="contact-value"><a href="/cdn-cgi/l/email-protection#8ce6e3ffe9fce4b5b8babfcce7e5edffa2fee9a2e7fe"><span class="__cf_email__" data-cfemail="43292c3026332b7a77757003282a22306d31266d2831">[email&#160;protected]</span></a></div>
+      <div class="contact-value"><!--email_off--><a href="mailto:joseph9463@kias.re.kr">joseph9463@kias.re.kr</a><!--/email_off--></div>
     </div>
     <div class="contact-card reveal stagger">
       <div class="contact-label">Office</div>
-      <div class="contact-value">KIAS, Bldg 8, Room 214<br><span style="font-size:0.82rem;color:var(--ink-muted)">85 Hoegi-ro, Dongdaemun-gu, Seoul 02455</span></div>
+      <div class="contact-value">KIAS, Bldg 8, Room 214<br><span style="font-size:0.8rem;color:var(--ink-muted)">85 Hoegi-ro, Dongdaemun-gu, Seoul 02455</span></div>
     </div>
     <div class="contact-card reveal stagger">
       <div class="contact-label">Google Scholar</div>
@@ -423,17 +658,24 @@
 </section>
 
 <footer>
-  <p>&copy; 2026 Jaesung Choi. All rights reserved.</p>
+  <p>© 2026 Jaesung Choi</p>
   <div class="social">
-    <a href="https://scholar.google.com/citations?user=1eukyIoAAAAJ" target="_blank">Google Scholar</a>
-    <a href="https://github.com/Jaesung-C" target="_blank">GitHub</a>
+    <a href="https://scholar.google.com/citations?user=1eukyIoAAAAJ" target="_blank">Scholar</a>
     <a href="https://orcid.org/0009-0008-1817-2210" target="_blank">ORCID</a>
-    <a href="https://arxiv.org/search/?query=jaesung+choi+reservoir&searchtype=all" target="_blank">arXiv</a>
+    <a href="https://github.com/Jaesung-C" target="_blank">GitHub</a>
     <a href="https://www.kias.re.kr" target="_blank">KIAS</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   document.body.classList.add('reveal-ready');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
