@@ -1,0 +1,355 @@
+% LaTeX CV for Jaesung Choi
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{marvosym}
+
+% Page layout
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+
+% Colors
+\definecolor{titlecolor}{RGB}{0,51,102}
+\definecolor{sectioncolor}{RGB}{0,102,153}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Line spacing
+\linespread{0.95}
+
+% Section formatting
+\titleformat{\section}
+    {\Large\bfseries\color{sectioncolor}}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+
+\titleformat{\subsection}
+    {\large\bfseries}
+    {}
+    {0em}
+    {}
+
+% Adjust section spacing (reduce space before and after sections)
+\titlespacing*{\section}{0pt}{0.8em}{0.4em}
+\titlespacing*{\subsection}{0pt}{0.6em}{0.3em}
+
+% Custom commands
+\newcommand{\cvitem}[2]{
+    \noindent\textbf{#1} \hfill #2
+}
+
+\newcommand{\cventry}[4]{
+    \noindent\textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Reduce spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\bfseries\color{titlecolor} Jaesung Choi}
+    
+    \vspace{0.3em}
+    
+    Korea Institute for Advanced Study (KIAS) \\
+    Bldg 8 Room 214, Hoegi-ro 85, Dongdaemun-gu, Seoul, 02455, Republic of Korea \\
+    {\small \Letter} \hspace{0.1em} \href{mailto:joseph9463@kias.re.kr}{joseph9463@kias.re.kr}
+    % Optional: uncomment and fill in your own IDs/links to help reviewers verify your record.
+    % \\ \href{https://orcid.org/0009-0008-1817-2210}{ORCID} \textbullet{} \href{https://scholar.google.com/citations?user=1eukyIoAAAAJ}{Google Scholar} \textbullet{} \href{https://jaesung-c.github.io/}{Homepage}
+\end{center}
+
+\vspace{0.5em}
+
+% Employment
+\section*{Employment}
+
+% 현재 KIAS 포지션
+\cventry{AI Fellow (AI Assistant Professor)}{Aug. 2026 -- present}
+{Korea Institute for Advanced Study (KIAS), Center for AI and Natural Sciences}{Seoul, Korea}
+
+\vspace{0.3em}
+
+% 이전 KIAS 포지션
+\cventry{AI Junior Fellow}{Oct. 2025 -- Jul. 2026}
+{Korea Institute for Advanced Study (KIAS), Center for AI and Natural Sciences}{Seoul, Korea}
+\vspace{1pt}
+{\small \hspace*{1.2em} \textit{Mentor:} Prof. Jaesung Lee}
+
+\vspace{0.3em}
+
+% ASU 방문 연구원 포지션
+\cventry{Visiting Scholar}{Feb. 2026 -- May 2026}
+{Arizona State University, School of Electrical, Computer and Energy Engineering}{Tempe, AZ, USA}
+\vspace{1pt}
+{\small \hspace*{1.2em} \textit{Host:} Prof. Ying-Cheng Lai (Regents Professor)}
+
+\vspace{0.3em}
+
+% 이전 KIAS 포지션
+\cventry{AI Research Fellow}{Mar. 2023 -- Sep. 2025}
+{Korea Institute for Advanced Study (KIAS), Center for AI and Natural Sciences}{Seoul, Korea}
+\vspace{1pt}
+{\small \hspace*{1.2em} \textit{Mentor:} Prof. Jaesung Lee}
+
+% Education
+\section*{Education}
+
+\cventry{Ph.D. in Mathematical Sciences}{Aug. 2019 -- Feb. 2023}
+{Ulsan National Institute of Science and Technology (UNIST)}{Ulsan, Korea}
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Advisor: Pilwon Kim, Ph.D., Professor in UNIST
+    \item Dissertation: \textit{Oscillator-based reservoir computing and its applications}
+\end{itemize}
+
+\vspace{0.3em}
+
+\cventry{M.S. in Mathematical Sciences}{Feb. 2017 -- Aug. 2019}
+{Ulsan National Institute of Science and Technology (UNIST)}{Ulsan, Korea}
+
+\vspace{0.3em}
+
+\cventry{B.S. in Mathematical Sciences \& Physics (double major)}{Mar. 2013 -- Feb. 2017}
+{Inha University}{Incheon, Korea}
+
+% Research Interests
+\section*{Research Interests}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item \textbf{Machine Learning for Time Series:} Reservoir computing, autoencoder architectures, convolutional and attention mechanisms
+    \item \textbf{Computational Methods:} Data augmentation and imputation algorithms, signal denoising, parameter extraction techniques
+    \item \textbf{Nonlinear Dynamics:} Dynamical systems analysis, early warning indicators, critical transitions
+    \item \textbf{Neuromorphic Hardware:} Physical reservoir computing implementations using Resistive Random Access Memory (RRAM) and Triboelectric Nanogenerators (TENG)
+\end{itemize}
+
+% Publications
+\section*{Publications}
+\textit{($\dagger$equal contribution, *corresponding author)}
+
+\subsection*{Journal Articles}
+
+\textbf{2026}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em]
+    \item \textbf{J. Choi}$^\dagger$*, A.L. Chanu$^\dagger$ and S. Awasthi$^\dagger$*. ``Stochastic intracellular calcium dynamics show preserved structures identified by deep learning classification.'' \textit{PLOS Computational Biology} 22.4 (2026): e1014240.
+    
+    \item A.L. Chanu, Y. Park, \textbf{J. Choi}, Y. Cha, U. Lee, J. Moon and J. Park. ``Human brain state classification via permutation entropy of EEG phase dynamics across consciousness levels and inattentive-type ADHD.'' \textit{Chaos, Solitons \& Fractals} 209 (2026): 118416.
+\end{enumerate}
+
+\textbf{2025}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em, resume]
+    \item \textbf{J. Choi}, and P. Kim. ``Unsupervised reservoir computing for multivariate denoising of severely contaminated signals.'' \textit{Knowledge-Based Systems} (2025): 114574.
+    
+    \item \textbf{J. Choi}, and P. Kim. ``Homotopy Reservoir Computing: Harnessing chaos for computation.'' \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 35.9 (2025): 093112.
+    
+    \item \textbf{J. Choi}, and P. Kim. ``Signal-Noise separation using unsupervised reservoir computing.'' \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 35.8 (2025): 083136.
+    
+    \item H. Park, D. Kim, I. Park, H. Nah, J. Yang, J. Yeo, \textbf{J. Choi}, J. Choi, H. Park and H. Choi. ``Pd-modified microneedle array sensor integration with deep learning for predicting silica aerogel properties in real time.'' \textit{ACS Applied Materials \& Interfaces} (2025).
+\end{enumerate}
+
+\textbf{2023}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em, resume]
+    \item \textbf{J. Choi}, E. Park, B. Jang and Y. Kim. ``Reservoir concatenation and the spectrum distribution of concatenated reservoir state matrices.'' \textit{AIP Advances} 13.11 (2023): 115110.
+\end{enumerate}
+
+\textbf{2022}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em, resume]
+    \item \textbf{J. Choi}, and P. Kim. ``Early warning for critical transitions using machine-based predictability.'' \textit{AIMS Mathematics} 7.11 (2022): 20313-20327.
+\end{enumerate}
+
+\textbf{2020}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em, resume]
+    \item \textbf{J. Choi}, and P. Kim. ``Reservoir computing based on quenched chaos.'' \textit{Chaos, Solitons \& Fractals} 140 (2020): 110131.
+\end{enumerate}
+
+\textbf{2019}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=0.2em, itemsep=0.3em, resume]
+    \item \textbf{J. Choi}, and P. Kim. ``Critical neuromorphic computing based on explosive synchronization.'' \textit{Chaos: An Interdisciplinary Journal of Nonlinear Science} 29.4 (2019): 043110.
+\end{enumerate}
+
+\subsection*{Submitted Manuscripts}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item \textbf{J. Choi}. ``Predicting the onset of global chaos beyond the training range with topology-aware symplectic learning.''
+
+    \item \textbf{J. Choi}. ``Extrapolating the emergence of Hamiltonian chaos with random-feature Hamiltonian neural networks.'' \href{https://arxiv.org/abs/2607.28977}{[arXiv:2607.28977]}
+
+    \item \textbf{J. Choi}, A.L. Chanu, and J. Park. ``Learning a quantitative criterion for distinguishing chaos from noise.''
+    
+    \item J. Park$^\dagger$, \textbf{J. Choi}$^\dagger$, H. Kim, H. Park, J. Kim, J. Choi, S. Kim, M. Lee, and K. Heo. ``Reconstructing hidden variables in chaotic and real-world system with a single-memristor based physical reservoir computing.''
+
+    \item J. Park, H. Kim, J. Choi, \textbf{J. Choi}* and M. Lee*. ``A triboelectric nanogenerator-driven physical reservoir computing for intelligent cardiac anomaly detection.''
+
+\end{itemize}
+
+\subsection*{Manuscripts in Preparation}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item \textbf{J. Choi}. ``ForeSURE: Forecast-calibrated SURE for self-supervised broadband time-series denoising.''
+    \item \textbf{J. Choi}. ``Thermodynamically admissible next-generation reservoir computing.''
+\end{itemize}
+
+% Presentations
+\section*{Presentations}
+
+\subsection*{Invited Talks}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item ``Reservoir Computing: Differences from Deep Learning, and Applications to State Reconstruction and Prediction.'' \textit{Lecture and Tutorial} at the Institute for Future Earth, Pusan National University, 2026.
+    
+    \item ``Learning chaos with artificial intelligence.'' \textit{Special Lecture} at the Korea Academy of Complexity Studies--KENTECH Complex Systems Summer School, 2026. \href{https://www.complexity.kr/?p=1365}{[poster]}
+    
+    \item ``Reservoir computing beyond the training regime.'' Seminar at the Nonlinear Dynamics \& Mathematical Application Center (SRC), Kyungpook National University, 2026.
+    
+    \item ``Reservoir computing and Echo state networks: Basics \& Hands-on'' \textit{Tutorial} at 2026 UNIST Mathematical Imaging Lab Workshop, 2026.
+    
+    \item ``Time series pattern discovery and harnessing complex systems for computation.'' Seminar at KIAS 2025 Winter Research Exchange Meeting, 2025.
+    
+    \item ``Reservoir computing: From chaotic system prediction to physical implementation.'' Seminar at Inha University, 2025.
+    
+    \item ``Extracting predictable information from time series data using machine learning.'' Seminar at National Institute for Mathematical Sciences (NIMS), 2025.
+    
+    \item ``Extracting predictable information from time series data using machine learning.'' 1st APCTP-SISSA Joint Workshop on AI and Theoretical Physics, 2024.
+    
+    \item ``Multivariate signal-noise separation using unsupervised reservoir computing.'' KSIAM 2024 Annual Meeting, 2024.
+    
+    \item ``How reservoir computing differs from conventional neural networks and its potential applications.'' Seminar at National Institute for Mathematical Sciences (NIMS), 2024.
+    
+    \item ``Reservoir computing: Concepts and Implementations.'' \textit{Tutorial} at 2024 KPS Fall Meeting - Semiconductor Physics Department, 2024.
+    
+    \item ``Strengths and recent research trends of reservoir computing.'' Seminar at Korea University, 2024.
+    
+    \item ``Harnessing dynamical systems for computation - The reservoir computing approach.'' Seminar at Kyungpook National University, 2024.
+    
+    \item ``Introduction to physical reservoir computing.'' Seminar at Hanyang University (ERICA), Inha University, 2024.
+    
+    \item ``Brief introduction to physical reservoir computing.'' Non-Equilibrium Statmech Theory (NEST) Meeting at KIAS, 2024.
+    
+    \item Review on the paper ``Reservoir computing with error correction: Long-term behaviors of Stochastic Dynamical Systems.'' 11th Workshop on Nonequilibrium Fluctuation Theorems, 2023.
+    
+    \item ``Constructing Efficient Reservoir Computers and Exploring Memory Capacity.'' Seminar at Korea Institute of Science and Technology, 2022.
+\end{itemize}
+
+\subsection*{Contributed Talks}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item Review on the paper ``Reservoir-computing based associative memory and itinerancy for complex dynamical attractors.'' NEST Meeting at KIAS, 2024.
+    
+    \item ``Exploring the computational potential of Titanium Dioxide Thin Films as physical reservoir computer.'' KIAS Center for AI and Natural Sciences Workshop, 2024.
+    
+    \item ``Denoising extremely noisy dynamical systems using unsupervised reservoir computing.'' KSIAM 2024 Spring Conference, 2024.
+    
+    \item ``Signal-Noise separation using unsupervised Echo state networks.'' KIAS Center for AI and Natural Sciences Workshop, 2023.
+    
+    \item ``Early Warning Indicators for noisy systems.'' UNIST ML-based Early Warning Indicators Workshop, 2023.
+\end{itemize}
+
+% Grants
+\section*{Grants}
+
+\cvitem{KIAS Individual Grant (AP092902)}{Mar. 2025 -- Feb. 2028}
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Principal Investigator (PI), Center for AI and Natural Sciences, KIAS
+    \item Research Subject: Predictive modeling research based on interaction between time series pattern discovery and neural network dynamical structures
+    \item Amount: 13 million KRW per year
+\end{itemize}
+
+\vspace{0.2em}
+
+\cvitem{KIAS Individual Grant (AP092901)}{Mar. 2023 -- Feb. 2025}
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Principal Investigator (PI), Center for AI and Natural Sciences, KIAS
+    \item Research Subject: Realization of reservoir computing framework based on complex systems
+    \item Amount: 10 million KRW per year
+\end{itemize}
+
+% Honors and Awards
+\section*{Honors and Awards}
+
+\cvitem{UNIST Graduate Full Scholarship}{Mar. 2017 -- Feb. 2023}
+
+% Service and Outreach
+\section*{Service and Outreach}
+
+\subsection*{Alternative Military Service}
+
+\cvitem{Technical Research Personnel}{Mar. 2023 -- Feb. 2025}
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Affiliation: Korea Institute for Advanced Study (KIAS)
+\end{itemize}
+
+\vspace{0.2em}
+
+\cvitem{Technical Research Personnel}{Mar. 2022 -- Feb. 2023}
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Affiliation: Ulsan National Institute of Science and Technology (UNIST)
+\end{itemize}
+
+\subsection*{Referee Services}
+
+Manuscripts reviewed for:
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.1em]
+    \item Proceedings of the National Academy of Sciences (PNAS)
+    \item Expert Systems With Applications (ESWA)
+    \item Review of Scientific Instruments (RSI)
+    \item PLOS ONE
+    \item Scientific Reports
+\end{itemize}
+
+\subsection*{Career Talks}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item ``Postdoctoral research experience in applied mathematics for undergraduate and graduate students.'' Math Night at UNIST, 2025.
+    
+    \item ``Experiences as a researcher with a degree in mathematics.'' Seminar in Career Exploration Class at Kyung-Hee University, 2024.
+\end{itemize}
+
+\subsection*{Other Services}
+
+\begin{itemize}[leftmargin=1.5em, topsep=0.2em, itemsep=0.2em]
+    \item Organizer and Session Chair, \href{https://symposia.kias.re.kr/2026PDEMATH/}{2026 Winter Workshop on PDE and Applied Mathematics}
+    
+    \item Session Chair, Korea Institute for Advanced Study AI \& Natural Sciences Workshop, 2026
+    
+    \item Task Force Member, KIAS-Lite (Small Language Model) Development Project, Korea Institute for Advanced Study, 2025
+    
+    \item Session Chair, KIAS Lecture Series on Computational Neuroscience and AI, 2025
+    
+    \item Organizer, \href{http://events.kias.re.kr/h/AI2025/}{Korea Institute for Advanced Study AI \& Natural Sciences Workshop, 2025}
+    
+    \item Session Chair, Korea Institute for Advanced Study AI \& Natural Sciences Workshop, 2024
+    
+    \item Organizer, UNIST Machine Learning-based Early Warning Indicator Workshop, 2023
+\end{itemize}
+\end{document}
